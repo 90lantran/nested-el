@@ -1,0 +1,31 @@
+sas<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="child-el">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2> in child-el: {{data2}} </h2>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'child-el',
+
+      properties: {
+        data2: {
+          type: String,
+          notify: true,
+        },
+      },
+
+      ready: function(){
+
+      }
+
+    });
+  </script>
+</dom-module>

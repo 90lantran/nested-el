@@ -1,0 +1,41 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="parent-el.html">
+<link rel="import" href="child-el.html">
+
+
+<dom-module id="nested-el">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <parent-el data1="{{data}}">
+      <child-el id='c'></child-el>
+    </parent-el>
+    <div id='a'></div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'nested-el',
+
+      properties: {
+        data: {
+          type: String,
+          notify: true,
+        }
+      },
+
+      ready: function(){
+        var childEl =  Polymer.dom(this).parentNode.querySelector('#c');
+        childEl.data2 = "Found this";
+      
+        console.log(childEl);
+        console.log(Polymer.dom(this).parentNode.querySelector('#a'));
+
+      }
+    });
+  </script>
+</dom-module>

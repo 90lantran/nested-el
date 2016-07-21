@@ -1,0 +1,38 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="parent-el">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2> in parent-el: {{data1}}</h2>
+    <content/>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'parent-el',
+      properties: {
+        data1: {
+          type: String,
+          notify: true
+        },
+        
+        toChild:{
+        	type: String,
+        	//computed: 'computeDataForChild(data1)'
+        }
+
+      },
+
+     ready: function(){
+        	this.data1 = 'parent content';
+        	//this.toChild = this.data1 + this.data1;
+        	//console.log(this.toChild);
+      }
+   
+    });
+  </script>
+</dom-module>
